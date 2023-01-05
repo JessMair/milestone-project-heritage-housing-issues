@@ -304,7 +304,8 @@ The issue really came down to the incompatibility between NumPy version 1.18.5 a
 
 Naturally I did my best to resolve this issue. I was very disappointed that it could not be resolved. This is something I will revisit again in the future, once permitted to ensure that the site is live. 
 
-UPDATE: I deployed the project to Render instead as it was confirmed afer much troubleshooting that the issue was with Heroku and not anything that I could have controlled or affected. 
+UPDATE: I deployed the project to Render instead as it was confirmed after much troubleshooting that the above issue was with Heroku itself and not anything that I could have controlled or affected. 
+
 ---
 
 
