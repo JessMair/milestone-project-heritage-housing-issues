@@ -1,7 +1,7 @@
 # Heritage Housing Issues
 
 This is my 5th and final project for the Code Institute "Full Stack Developer" Diploma. 
-Predictive Analytics is something which has always interested me and I have been very excited to reach this point in the course. I had longed to learn and practice these skills, as well as gain an understanding into a world which fascinates me. I present my [first ever dashboard,](https://heritagehouse.herokuapp.com/) but certainly not my last. 
+Predictive Analytics is something which has always interested me and I have been very excited to reach this point in the course. I had longed to learn and practice these skills, as well as gain an understanding into a world which fascinates me. I present my [first ever dashboard,](https://heritagehousing.onrender.com/) but certainly not my last. 
 
 ![Head image](media/amiresponsive.png)
 
@@ -304,25 +304,75 @@ The issue really came down to the incompatibility between NumPy version 1.18.5 a
 
 Naturally I did my best to resolve this issue. I was very disappointed that it could not be resolved. This is something I will revisit again in the future, once permitted to ensure that the site is live. 
 
-
+UPDATE: I deployed the project to Render instead as it was confirmed afer much troubleshooting that the issue was with Heroku and not anything that I could have controlled or affected. 
 ---
 
 
 ## Deployment
-### Heroku
+### Render
 
-* The App live link is: https://heritagehouse.herokuapp.com/ 
-* The project was deployed to Heroku using the following steps.
+* The App live link is: https://heritagehousing.onrender.com/ 
+* The project was deployed to Render using the following steps.
 
-1. Log in to Heroku and create an App
+Ensure GutHub account is connected to Render.com. The steps to do this are:
+1. Visit Render.com and click “Get Started”
+2. Sign up for Render with GitHub
+3. Log into GitHub (if needed) and then select “Authorize Render”
+4. Confirm your email address and click “Complete sign up”
+5. Open your email account and click the email verification link
 
-2. At the Deploy tab, select GitHub as the deployment method.
+Once the GitHub account is linked to the Render account, the GitHub repositories also need to be connected. 
 
-3. Select your repository name and click Search. Once it is found, click Connect.
+Give Render access to your GitHub repositories for deployment to full stack web developments. 
+1. Click “New +” and select “Web Service”
+2. On the right of the page, select “+ Configure account” for GitHub
+3. Select your GitHub account
+4. Ensure all repositories is selected and click “Install”
 
-4. Select the branch you want to deploy, then click Deploy Branch.
+ GitHub: Process (Optional) 
+1. Delete Procfile and runtime.txt
+2. Add, commit, and push your changes to GitHub
 
-5. The deployment process should happen smoothly in case all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
+I did not do this simply because I was conscious of the deployment issues with Heroku. As I have never deployed with Render before, I decided it may be wise to leave the files for this deployment since it will not affect anything. 
+
+The next stage is to create a Web Service to host the project on Render.com which will allow a full stack application to be deployed. 
+
+In Render: 
+1. Click “New +” and select “Web Service”
+2. Search for relevant repo and click “Connect”
+
+To ensure the application is configured correctly, the web service's configuration settings are required.
+Complete the details required to configure the applications settings. Complete as follows;
+
+3. Select a name for the web service: heritagehousing
+
+The name chosen will form part of the deployed URL. The name wil be unique on render.com. The resulting URL will be <name>.onrender.com. If the name is not unique, a random hash with be appended to the name given.
+
+4. Region:  Frankfurt (EU Central) 
+5. Branch: Main 
+6. Root Directory: Leave blank. (This indicates the root directory of repository is the same as the webservice. 
+7. Environment: Python 3 
+8. Set the Build command: pip install -r requirements.txt && ./setup.sh
+
+(This is the command that is executed when the deployment build is initiated. The command instructs the build to install the dependencies from the requirements.txt file and then run the setup.sh file from the current working directory). 
+
+9. Set the Start Command: streamlit run app.py
+10. Ensure the Free plan $0/month is selected
+
+Click on “Advanced” button below the pricing plan. 
+
+11. Click “Add Environment Variable”
+12. Add a key: PORT and a value: 8501
+13. Add a second environment variable with a key: PYTHON_VERSION and value: 3.8.12
+14. Scroll down to “Auto-Deploy” and select “Yes”
+15. Click “Create Web Service
+16. Deployment complete. 
+17. Open the deployed site via the link below the WEB SERVICE name:
+
+https://hertigagehousing.onrender.com
+
+Render can be slow for Predictive Analytics projects, patience is a must. 
+
 
 ## Main Data Analysis and Machine Learning Libraries
 
@@ -339,7 +389,8 @@ Naturally I did my best to resolve this issue. I was very disappointed that it c
 * [Github](https://github.com/) - Served as the remote repository
 * [Gitpod](https://gitpod.io) - Served as the local repository and IDE.
 * [Streamlit](https://docs.streamlit.io/) - To develop and display dashboard
-* [Heroku](https://id.heroku.com/) - Site deployed to heroku 
+* [Heroku](https://id.heroku.com/) - Tried to deploy site to Heroku 
+* [Render](https://dashboard.render.com/) - Site deployed to Render
 
 ## Languages used
 * [Python](https://www.python.org) 
